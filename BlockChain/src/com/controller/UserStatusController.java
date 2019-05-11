@@ -1,7 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.algo.HashGeneratorUtils;
+import Blockchain.Block;
+import Blockchain.ChainConsensus;
+
+//import com.algo.HashGeneratorUtils;
 import com.connection.DBConnection;
 
 
@@ -33,7 +36,7 @@ public class UserStatusController extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		HttpSession session=request.getSession(true);
-		PrintWriter pw=response.getWriter();
+		//PrintWriter pw=response.getWriter();
 		String id=request.getParameter("candidateid");
 		Connection con;
 		String donate=request.getParameter("donate");
@@ -52,8 +55,7 @@ public class UserStatusController extends HttpServlet
 				name=rsLogin.getString("Organization_Name");
 				Date=rsLogin.getString("Current_data");
 				Email_ID=rsLogin.getString("Email_ID");
-				Mobile=rsLogin.getString("Can"
-						+ "didate_Mobile"); 
+				Mobile=rsLogin.getString("Candidate_Mobile"); 
 				
 				
 			}
@@ -72,17 +74,14 @@ public class UserStatusController extends HttpServlet
 			}
 				
 			String sha=name+Date+Email_ID+Mobile+UserName+Mobile_No+email+donate;
-			String blockdata=HashGeneratorUtils.generateSHA256(sha);
-			System.out.println("Block Data=>"+blockdata);
+			ChainConsensus.Consensus(sha);
+			System.out.println("Block Data=>"+Block.hash);
 			String sql="insert into tbltransaction(Transaction_ID,Email_ID,BlockData) values(?,?,?)";
 			PreparedStatement p=(PreparedStatement) con.prepareStatement(sql);
-			
-			
 			p.setString(1,id );
 			p.setString(2, email);
-			p.setString(3, blockdata);
-			
-			int i=p.executeUpdate();
+			p.setString(3, Block.hash);
+			p.executeUpdate();
 			RequestDispatcher rd = request.getRequestDispatcher("/TransactionPage.jsp");
 			
 			rd.include(request, response); 

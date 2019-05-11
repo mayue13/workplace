@@ -11,6 +11,9 @@ public class Dbconn {
  
  public static String filepath2="F:\\BE2018-2019\\PVG Rahul Kale\\E_Voting_System\\WebContent\\Voter";
  public static String filepath3="Voter/";
+ public static int blockchain1msg=0,blockchain2msg=0,blockchain3msg=0,blockchain4msg=0;
+	public static String cid=null,c_Name=null,cp_Name=null,eid=null,CVoter=null,BlockData=null;
+	public static String PrevHash1=null,PrevHash2=null,PrevHash3=null,PrevHash4=null;
 	public Dbconn() throws SQLException {
 		// initComponents();
 		// Connection con;

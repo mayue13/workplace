@@ -103,7 +103,7 @@
                     <td> <%= resultset.getString(6) %> </td>
                     <td> <%= resultset.getString(7) %> </td>
                     <td> <%= resultset.getString(8) %> </td>
-                    <td> <input type="text" class="form-control" required="required" name="donate" >
+                    <td> <input type="number" class="form-control" required="required" name="donate" >
                  </td>
                 <td> <a href="UserStatusController?candidateid=<%=resultset.getString(1)%>"><input type="button" name="Turn On" value="SEND" class="btn btn-info"></a></td>
                </tr>

@@ -20,6 +20,5 @@ public class HashGenerationException extends Exception {
 		super(throwable);
 	}
 	
-
 	
 }
