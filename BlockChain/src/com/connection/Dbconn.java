@@ -40,7 +40,7 @@ public class Dbconn {
 	public static Connection conn2() throws SQLException, ClassNotFoundException {
 		Connection con;
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/blockchain2", "root", "admin");
+		con = DriverManager.getConnection("jdbc:mysql://192.168.137.58:3306/blockchain2", "root", "admin");
 
 		return (con);
 
@@ -48,7 +48,7 @@ public class Dbconn {
 	public static Connection conn3() throws SQLException, ClassNotFoundException {
 		Connection con;
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/blockchain3", "root", "admin");
+		con = DriverManager.getConnection("jdbc:mysql://192.168.137.155:3306/blockchain3", "root", "admin");
 
 		return (con);
 
@@ -56,7 +56,7 @@ public class Dbconn {
 	public static Connection conn4() throws SQLException, ClassNotFoundException {
 		Connection con;
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/blockchain4", "root", "admin");
+		con = DriverManager.getConnection("jdbc:mysql://192.168.137.137:3306/blockchain4", "root", "admin");
 
 		return (con);
 
